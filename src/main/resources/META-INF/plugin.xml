@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>com.showcode.ShowCodePlugin</id>
+
+    <name>Showcode Screenshot Generator</name>
+
+    <vendor email="support@showcode.app" url="https://showcode.app">Showcode</vendor>
+
+    <description>
+        <![CDATA[
+            Generates screenshots of selected code via the https://showcode.app API.
+        ]]>
+    </description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectConfigurable id="pluginSettingsConfigurable" displayName="Showcode Configuration" instance="com.showcode.screenshotplugin.ui.PluginSettingsConfigurable"/>
+        <applicationService serviceImplementation="com.showcode.screenshotplugin.config.PluginConfig"/>
+
+    </extensions>
+
+    <actions>
+        <action id="GenerateScreenshot" class="com.showcode.screenshotplugin.action.GenerateScreenshotAction" text="Generate showcode.app screenshot" description="Generate beautiful screenshot for the selected code.">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+
+</idea-plugin>
